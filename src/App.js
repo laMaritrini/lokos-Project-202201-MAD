@@ -3,6 +3,8 @@ import './App.css';
 import { Header } from './components/core/Header';
 import { Menu } from './components/core/Menu';
 
+import { Footer } from './components/core/Footer';
+
 export function App() {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
@@ -12,6 +14,8 @@ export function App() {
         <div className="app">
             <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
             {menuOpen && <Menu />}
+
+            <Footer />
         </div>
     );
 }
