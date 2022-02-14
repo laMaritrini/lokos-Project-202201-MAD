@@ -4,7 +4,7 @@ import {
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Footer.scss';
+import './footer.scss';
 
 export function Footer() {
     return (
