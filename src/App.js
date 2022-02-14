@@ -9,6 +9,12 @@ export function App() {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+    const menuOptions = [
+        { path: '/', label: 'Home' },
+        { path: '/favorites', label: 'Favorites' },
+        { path: '/about-us', label: 'About Us' },
+        { path: '/heber', label: 'Heber' },
+    ];
     return (
         <div className="app">
             <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
@@ -21,6 +27,7 @@ export function App() {
             <Route path="/about-us" element={}></Route>
             </Routes>
             </main>
+            {menuOpen && <Menu menuOptions={menuOptions} />}
             <Footer />
         </div>
     );
