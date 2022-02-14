@@ -5,14 +5,21 @@
     color: white;
     background-color: rgb(53, 52, 54);
     padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 150px;
+    row-gap: 1rem;
+    width: 100vw;
+
     &__icons {
-        margin-top: 3rem;
         display: flex;
         gap: 1rem;
         justify-content: center;
     }
     &__info {
         font-style: normal;
-        line-height: 0.3;
     }
 }
