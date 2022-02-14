@@ -4,19 +4,31 @@ import {
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './footer.scss';
 
 export function Footer() {
     return (
-        <div>
-            {/* <i className="fa-brands fa-facebook-f" />
-            <i className="fa-brands fa-instagram" />
-            <i className="fa-brands fa-twitter" /> */}
-            <FontAwesomeIcon icon={faFacebookF} />
-            <FontAwesomeIcon icon={faInstagram} />
-            <FontAwesomeIcon icon={faTwitter} />
-            <address>
-                <p className="footer-group">Created by team L&apos;OkOs</p>
-                <p className="footer-group">ISDI Coders</p>
+        <div className="footer">
+            <div className="footer__icons">
+                <FontAwesomeIcon
+                    footer__icons
+                    footer__icons--icon
+                    icon={faFacebookF}
+                />
+                <FontAwesomeIcon
+                    footer__icons
+                    footer__icons--icon
+                    icon={faInstagram}
+                />
+                <FontAwesomeIcon
+                    footer__icons
+                    footer__icons--icon
+                    icon={faTwitter}
+                />
+            </div>
+            <address className="footer__info">
+                <p className="footer__group">Created by team L&apos;OkOs</p>
+                <p className="footer__group">ISDI Coders</p>
             </address>
         </div>
     );
