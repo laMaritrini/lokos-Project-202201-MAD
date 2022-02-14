@@ -10,10 +10,16 @@ export function App() {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+    const menuOptions = [
+        { path: '/', label: 'Home' },
+        { path: '/favorites', label: 'Favorites' },
+        { path: '/about-us', label: 'About Us' },
+        { path: '/heber', label: 'Heber' },
+    ];
     return (
         <div className="app">
             <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
-            {menuOpen && <Menu />}
+            {menuOpen && <Menu menuOptions={menuOptions} />}
 
             <Footer />
         </div>

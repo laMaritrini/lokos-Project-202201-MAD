@@ -1,12 +1,17 @@
+import { Link } from 'react-router-dom';
 import './Menu.scss';
 
-export function Menu() {
+export function Menu({ menuOptions }) {
     return (
         <nav className="menu">
             <ul className="menu__list">
-                <li className="menu__list-item">Home</li>
-                <li className="menu__list-item">Favorites</li>
-                <li className="menu__list-item">About Us</li>
+                {menuOptions.map((item) => (
+                    <li key={item.path} className="menu__list-item">
+                        <Link className="menu__link" to={item.path}>
+                            {item.label}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
