@@ -1,6 +1,6 @@
 import './Menu.scss';
 
-export default function Menu() {
+export function Menu() {
     return (
         <nav className="menu">
             <ul className="menu__list">

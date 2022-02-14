@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import Header from './components/core/Header';
-import Menu from './components/core/Menu';
+import { Header } from './components/core/Header';
+import { Menu } from './components/core/Menu';
 
 export function App() {
     const [menuOpen, setMenuOpen] = useState(false);

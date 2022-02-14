@@ -6,7 +6,7 @@ import {
     faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function Header({ menuOpen, toggleMenu }) {
+export function Header({ menuOpen, toggleMenu }) {
     const handleClick = () => {
         toggleMenu();
     };
@@ -19,7 +19,7 @@ export default function Header({ menuOpen, toggleMenu }) {
         <div>
             <header className="header">
                 <div className="header__logo">
-                    <img src="./assets/logo.svg" alt="" />
+                    <img src="./assets/logo.svg" alt="Oko logo" />
                 </div>
                 <div className="header__input-container">
                     <input
@@ -44,11 +44,15 @@ export default function Header({ menuOpen, toggleMenu }) {
                         <FontAwesomeIcon
                             className="header__menu-burger header__menu-burger--closed"
                             icon={faBars}
+                            role="button"
+                            data-testid="burger"
                         />
                     ) : (
                         <FontAwesomeIcon
                             className="header__menu-burger header__menu-burger--open"
                             icon={faXmark}
+                            role="button"
+                            data-testid="x"
                         />
                     )}
                 </div>
