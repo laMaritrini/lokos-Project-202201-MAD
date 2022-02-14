@@ -17,7 +17,6 @@ export function App() {
         { path: '/', label: 'Home' },
         { path: '/favorites', label: 'Favorites' },
         { path: '/about-us', label: 'About Us' },
-        { path: '/heber', label: 'Heber' },
     ];
     return (
         <div className="app">
