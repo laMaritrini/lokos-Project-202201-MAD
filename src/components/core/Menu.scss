@@ -1,0 +1,23 @@
+.menu {
+    background-color: rgba(118, 149, 157, 0.31);
+    position: absolute;
+    top: 100px;
+    right: 0;
+    border-bottom-left-radius: 30px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+    width: 165px;
+
+    &__list {
+        list-style: none;
+        text-align: left;
+        font-size: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+    }
+}
