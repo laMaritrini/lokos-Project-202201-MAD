@@ -11,18 +11,15 @@ export function Footer() {
         <div className="footer">
             <div className="footer__icons">
                 <FontAwesomeIcon
-                    footer__icons
-                    footer__icons--icon
+                    className="footer__icons footer__icons--icon"
                     icon={faFacebookF}
                 />
                 <FontAwesomeIcon
-                    footer__icons
-                    footer__icons--icon
+                    className="footer__icons footer__icons--icon"
                     icon={faInstagram}
                 />
                 <FontAwesomeIcon
-                    footer__icons
-                    footer__icons--icon
+                    className="footer__icons footer__icons--icon"
                     icon={faTwitter}
                 />
             </div>
