@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Context } from '../../context/contextProvider';
-import { Photo } from '../Photo';
+import { Photo } from '../Photo/Photo';
 import './Home.scss';
 
 export function Home() {
