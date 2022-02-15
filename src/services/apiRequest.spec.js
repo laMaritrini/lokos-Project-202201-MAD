@@ -1,16 +1,19 @@
+import axios from 'axios';
 import * as service from './apiRequest';
+
+jest.mock('axios');
 
 describe('Given the function getHomePhotos', () => {
     describe('When it will be executed', () => {
         beforeEach(() => {
-            const mockResponse = [{ id: 1 }, { id: 2 }];
-            jest.spyOn(global, 'fetch').mockResolvedValue({
-                json: jest.fn().mockResolvedValue(mockResponse),
-            });
+            const resp = [{ id: 1 }, { id: 2 }];
+            axios.get.mockResolvedValue(resp);
         });
         test('The function to be used', () => {
-            service.getHomePhotos();
-            expect(global.fetch).toHaveBeenCalled();
+            const resp = [{ id: 1 }, { id: 2 }];
+            return service.getHomePhotos().then((data) => {
+                expect(data).toEqual(resp);
+            });
         });
     });
 });
