@@ -1,6 +1,7 @@
 .photo {
     width: 90vw;
     margin-bottom: 20px;
+
     &__container {
         width: 100%;
         height: fit-content;
@@ -45,5 +46,13 @@
     }
     &__heart-icon {
         font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .photo {
+        &__info-container {
+            display: none;
+        }
     }
 }

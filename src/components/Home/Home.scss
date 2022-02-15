@@ -5,3 +5,12 @@
     padding-top: 20px;
     background-color: #d4e5e3;
 }
+
+@media (min-width: 768px) {
+    .home {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 2rem;
+    }
+}
