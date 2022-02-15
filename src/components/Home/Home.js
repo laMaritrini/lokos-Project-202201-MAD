@@ -5,7 +5,6 @@ import './Home.scss';
 
 export function Home() {
     const { photos } = useContext(Context);
-    console.log(photos);
 
     return (
         <div className="home">

@@ -1,8 +1,14 @@
 import './Photo.scss';
+import { useContext } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import Overlay from '../Overlay/Overlay';
+import { Context } from '../../context/contextProvider';
 
 export function Photo({ photo }) {
+    const { addPhoto } = useContext(Context);
+    const handleClick = () => {
+        addPhoto(photo);
+    };
     return (
         <div className="photo">
             <div className="photo__container">
@@ -23,7 +29,10 @@ export function Photo({ photo }) {
                     </div>
                     <h2 className="photo__user-name">{photo.user.username}</h2>
                 </div>
-                <AiOutlineHeart className="photo__heart-icon" />
+                <AiOutlineHeart
+                    onClick={handleClick}
+                    className="photo__heart-icon"
+                />
             </div>
         </div>
     );
