@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import './Photo.scss';
 import { AiOutlineHeart } from 'react-icons/ai';
 

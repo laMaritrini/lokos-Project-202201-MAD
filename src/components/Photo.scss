@@ -3,6 +3,7 @@
     margin-bottom: 20px;
     &__container {
         width: 100%;
+        height: fit-content;
         position: relative;
     }
     &__overlay {
@@ -40,8 +41,11 @@
         column-gap: 10px;
     }
     &__user-photo-container {
-        overflow: hidden;
         border-radius: 50%;
+
+        & img {
+            border-radius: 50%;
+        }
     }
     &__user-name {
         font-size: 1rem;
