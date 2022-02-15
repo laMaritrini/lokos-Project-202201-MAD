@@ -18,6 +18,7 @@ export function Header({ menuOpen, toggleMenu }) {
     return (
         <div>
             <header className="header">
+                <h1>Oko</h1>
                 <div className="header__logo">
                     <img src="./assets/logo.svg" alt="Oko logo" />
                 </div>
