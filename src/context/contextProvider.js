@@ -7,6 +7,7 @@ export const Context = createContext({
         favoritePhotos: [],
     },
     addPhoto: () => {},
+    deletePhoto: () => {},
 });
 
 export function ContextProvider({ children }) {
