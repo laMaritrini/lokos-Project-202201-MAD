@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import reactDom from 'react-dom';
-import { act } from 'react-dom/test-utils';
-import { ContextProvider } from '../../context/contextProvider';
-import { Home } from './Home';
+// import { render, screen } from '@testing-library/react';
+// import reactDom from 'react-dom';
+// import { act } from 'react-dom/test-utils';
+// import { ContextProvider } from '../../context/contextProvider';
+// import { Home } from './Home';
 
 // const mockPhoto = [
 //     {
