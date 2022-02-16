@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Context } from '../../context/contextProvider';
-import { Home } from './Home';
+import { Favorites } from './Favorites';
 
 const state = {
     state: {
@@ -43,7 +43,7 @@ describe('first', () => {
         render(
             <BrowserRouter>
                 <Context.Provider value={state}>
-                    <Home />
+                    <Favorites />
                 </Context.Provider>
             </BrowserRouter>
         );

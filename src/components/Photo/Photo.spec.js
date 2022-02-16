@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { Photo } from './Photo';
 
 const mockPhoto = {
@@ -18,7 +19,11 @@ const mockPhoto = {
 describe('Given photo component', () => {
     describe('When passed a photo obj', () => {
         test('It should render', () => {
-            render(<Photo photo={mockPhoto} />);
+            render(
+                <BrowserRouter>
+                    <Photo photo={mockPhoto} />
+                </BrowserRouter>
+            );
             expect(screen.getByAltText(/Alt_description/)).toBeInTheDocument();
             expect(screen.getAllByText(/hebeready/)).toHaveLength(2);
         });
