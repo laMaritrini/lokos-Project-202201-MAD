@@ -6,7 +6,7 @@ import Overlay from '../Overlay/Overlay';
 import { Context } from '../../context/contextProvider';
 
 export function Photo({ photo }) {
-    const { state, addPhoto } = useContext(Context);
+    const { state, addPhoto, deletePhoto } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
 
     const checkFavoriteState = () => {
@@ -17,6 +17,10 @@ export function Photo({ photo }) {
     };
     const handleClick = () => {
         addPhoto(photo);
+        checkFavoriteState();
+    };
+    const handleDeleteClick = () => {
+        deletePhoto(photo);
         checkFavoriteState();
     };
     useEffect(() => {
@@ -45,7 +49,10 @@ export function Photo({ photo }) {
                     <h2 className="photo__user-name">{photo.user.username}</h2>
                 </div>
                 {isFavorite ? (
-                    <AiFillHeart className="photo__heart-icon" />
+                    <AiFillHeart
+                        onClick={handleDeleteClick}
+                        className="photo__heart-icon"
+                    />
                 ) : (
                     <AiOutlineHeart
                         onClick={handleClick}

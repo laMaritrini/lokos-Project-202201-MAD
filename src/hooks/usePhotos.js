@@ -23,10 +23,16 @@ export function usePhotos() {
             dispatch(actions.addPhotos(resp.data));
         });
     };
+    const deletePhoto = (photo) => {
+        service.deleteFavoritePhoto(photo.id).then((resp) => {
+            dispatch(actions.removePhoto(photo));
+        });
+    };
 
     const contextValue = {
         state,
         addPhoto,
+        deletePhoto,
     };
 
     return contextValue;

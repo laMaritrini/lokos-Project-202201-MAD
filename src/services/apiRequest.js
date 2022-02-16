@@ -20,3 +20,7 @@ export async function getDetails(id) {
 
     return axios.get(detailsUrl);
 }
+
+export async function deleteFavoritePhoto(id) {
+    return axios.delete(localUrl + id);
+}

@@ -14,3 +14,8 @@ export const addPhotos = (photo) => ({
     type: photosActionTypes.add,
     photo,
 });
+
+export const removePhoto = (photo) => ({
+    type: photosActionTypes.remove,
+    photo,
+});

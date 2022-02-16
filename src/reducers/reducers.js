@@ -11,6 +11,13 @@ export function photosReducer(state, action) {
                 ...state,
                 favoritePhotos: [...state.favoritePhotos, action.photo],
             };
+        case photosActionTypes.remove:
+            return {
+                ...state,
+                favoritePhotos: state.favoritePhotos.filter(
+                    (item) => item.id !== action.photo.id
+                ),
+            };
         default:
             return state;
     }
