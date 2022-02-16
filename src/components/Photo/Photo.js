@@ -21,7 +21,7 @@ export function Photo({ photo }) {
     };
     useEffect(() => {
         checkFavoriteState();
-    }, [state]);
+    });
     return (
         <div className="photo">
             <div className="photo__container">
