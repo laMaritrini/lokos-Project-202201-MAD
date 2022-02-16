@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Photo.scss';
 import { useContext } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -13,11 +14,13 @@ export function Photo({ photo }) {
         <div className="photo">
             <div className="photo__container">
                 <Overlay photo={photo} />
-                <img
-                    className="photo__img"
-                    src={photo.urls.small}
-                    alt={photo.alt_description}
-                />
+                <Link to={`/detail/id=${photo.id}`}>
+                    <img
+                        className="photo__img"
+                        src={photo.urls.small}
+                        alt={photo.alt_description}
+                    />
+                </Link>
             </div>
             <div className="photo__info-container">
                 <div className="photo__user-container">
