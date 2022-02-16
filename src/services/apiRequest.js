@@ -15,3 +15,8 @@ export async function getFavoritePhotos() {
 export async function set(photo) {
     return axios.post(localUrl, photo);
 }
+export async function getDetails(id) {
+    const detailsUrl = `https://api.unsplash.com/photos/${id}/?client_id=oo0I3DWICf63uyMkzE5gcA_pGOBCPC-dTUzkOcWXDJI`;
+
+    return axios.get(detailsUrl);
+}
