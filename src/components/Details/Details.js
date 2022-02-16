@@ -17,36 +17,46 @@ export function Details() {
     return (
         <div>
             <h3>DETAILS</h3>
-            {photoDetail && <Photo photo={photoDetail} />}
-            <div className="tags">
-                <h2 className="tags__title">Tags:</h2>
-                <i className="tags__icon" />
-            </div>
-            <div className="details">
-                <div className="details__container-author">
-                    <i className="details__container-icon" />
-                    <p>Name:</p>
-                    <p>Portfolio:</p>
-                    <p>Twitter:</p>
-                    <p>Bio:</p>
-                </div>
-                <div className="details__container-camera">
-                    <i className="details__container-icon" />
-                    <p>Camara Brand:</p>
-                    <p>Exposure Time:</p>
-                    <p>Aperture:</p>
-                    <p>Focal Length:</p>
-                    <p>ISO:</p>
-                </div>
-                <div className="details__container-social">
-                    <i className="details__container-icon" />
-                    <p>Views:</p>
-                    <p>Downloads:</p>
-                    <p>Likes:</p>
-                    <p>Created at:</p>
-                    <p>Location:</p>
-                </div>
-            </div>
+            {photoDetail && (
+                <>
+                    {' '}
+                    <Photo photo={photoDetail} />
+                    <div className="tags">
+                        <h2 className="tags__title">Tags:</h2>
+                        <i className="tags__icon" />
+                    </div>
+                    <div className="details">
+                        <div className="details__container-author">
+                            <i className="details__container-icon" />
+                            <p>
+                                Name: {photoDetail.user.name}{' '}
+                                {photoDetail.user.last_name}
+                            </p>
+                            <p>Portfolio: {photoDetail.user.portfolio_url}</p>
+                            <p>Twitter: {photoDetail.user.twitter_username}</p>
+                            <p>Bio: {photoDetail.user.bio}</p>
+                        </div>
+                        <div className="details__container-camera">
+                            <i className="details__container-icon" />
+                            <p>Camara Brand: {photoDetail.exif.name}</p>
+                            <p>
+                                Exposure Time: {photoDetail.exif.exposure_time}
+                            </p>
+                            <p>Aperture: {photoDetail.exif.aperture}</p>
+                            <p>Focal Length: {photoDetail.exif.focal_length}</p>
+                            <p>ISO: {photoDetail.exif.iso}</p>
+                        </div>
+                        <div className="details__container-social">
+                            <i className="details__container-icon" />
+                            <p>Views: {photoDetail.view}</p>
+                            <p>Downloads: {photoDetail.downloads}</p>
+                            <p>Likes: {photoDetail.likes}</p>
+                            <p>Created at: {photoDetail.created_at}</p>
+                            <p>Location: {photoDetail.location.city}</p>
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
