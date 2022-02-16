@@ -3,9 +3,14 @@ import { photosActionTypes } from './actionTypes';
 export function photosReducer(state, action) {
     switch (action.type) {
         case photosActionTypes.load:
-            return [...action.photoList];
+            return { ...state, photos: [...action.photoList] };
+        case photosActionTypes.loadFavorites:
+            return { ...state, favoritePhotos: [...action.favoritePhotoList] };
         case photosActionTypes.add:
-            return [...state, action.photo];
+            return {
+                ...state,
+                favoritePhotos: [...state.favoritePhotos, action.photo],
+            };
         default:
             return state;
     }

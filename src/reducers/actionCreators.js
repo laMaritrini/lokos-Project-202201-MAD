@@ -5,6 +5,11 @@ export const loadPhotos = (photoList) => ({
     photoList,
 });
 
+export const loadFavoritePhotos = (favoritePhotoList) => ({
+    type: photosActionTypes.loadFavorites,
+    favoritePhotoList,
+});
+
 export const addPhotos = (photo) => ({
     type: photosActionTypes.add,
     photo,
