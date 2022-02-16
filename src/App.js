@@ -21,7 +21,9 @@ export function App() {
     return (
         <div className="app">
             <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
-            {menuOpen && <Menu menuOptions={menuOptions} />}
+            {menuOpen && (
+                <Menu toggleMenu={toggleMenu} menuOptions={menuOptions} />
+            )}
             <main>
                 <Routes>
                     <Route path="/" element={<Home />} />

@@ -5,6 +5,7 @@ import {
     faXmark,
     faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export function Header({ menuOpen, toggleMenu }) {
     const handleClick = () => {
@@ -19,9 +20,11 @@ export function Header({ menuOpen, toggleMenu }) {
         <div>
             <header className="header">
                 <h1>Oko</h1>
-                <div className="header__logo">
-                    <img src="./assets/logo.svg" alt="Oko logo" />
-                </div>
+                <Link to="/">
+                    <div className="header__logo">
+                        <img src="./assets/logo.svg" alt="Oko logo" />
+                    </div>
+                </Link>
                 <div className="header__input-container">
                     <input
                         className="header__input"
