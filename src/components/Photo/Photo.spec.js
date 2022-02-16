@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { Photo } from './Photo/Photo';
+import { Photo } from './Photo';
 
 const mockPhoto = {
     urls: {
