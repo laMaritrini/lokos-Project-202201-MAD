@@ -23,6 +23,9 @@ export function Details() {
                     <Photo photo={photoDetail} />
                     <div className="tags">
                         <h2 className="tags__title">Tags:</h2>
+                        {photoDetail.tags_preview.map((item) => (
+                            <span key={item.title}>{item.title} </span>
+                        ))}
                         <i className="tags__icon" />
                     </div>
                     <div className="details">
@@ -48,7 +51,7 @@ export function Details() {
                         </div>
                         <div className="details__container-social">
                             <i className="details__container-icon" />
-                            <p>Views: {photoDetail.view}</p>
+                            <p>Views: {photoDetail.views}</p>
                             <p>Downloads: {photoDetail.downloads}</p>
                             <p>Likes: {photoDetail.likes}</p>
                             <p>Created at: {photoDetail.created_at}</p>
