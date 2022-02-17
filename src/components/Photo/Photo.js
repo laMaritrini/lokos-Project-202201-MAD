@@ -29,7 +29,15 @@ export function Photo({ photo }) {
         checkFavoriteState();
     };
     const handleDeleteClick = () => {
-        deletePhoto(photo);
+        let payload;
+        if (window.location.pathname === '/') {
+            payload = state.favoritePhotos.find(
+                (item) => item.myId === photo.id
+            );
+        } else if (window.location.pathname === '/favorites') {
+            payload = photo;
+        }
+        deletePhoto(payload);
         checkFavoriteState();
     };
     useEffect(() => {
