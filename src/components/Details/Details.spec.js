@@ -1,5 +1,4 @@
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-
 import { render, screen } from '@testing-library/react';
 import { Details } from './Details';
 import { getDetails } from '../../services/apiRequest';
@@ -52,6 +51,6 @@ describe('first', () => {
                 </Routes>
             </MemoryRouter>
         );
-        expect(screen.getByText(/DETAILS/)).toBeDefined();
+        expect(screen.getByText(/DETAILS/i)).toBeDefined();
     });
 });
