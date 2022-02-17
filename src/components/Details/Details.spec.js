@@ -51,6 +51,6 @@ describe('first', () => {
                 </Routes>
             </MemoryRouter>
         );
-        expect(screen.getByText(/DETAILS/i)).toBeDefined();
+        expect(screen.getByText(/Details/i)).toBeDefined();
     });
 });
