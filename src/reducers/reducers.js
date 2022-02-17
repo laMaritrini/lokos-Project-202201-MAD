@@ -18,6 +18,13 @@ export function photosReducer(state, action) {
                     (item) => item.id !== action.photo.id
                 ),
             };
+        case photosActionTypes.update:
+            return {
+                ...state,
+                favoritePhotos: state.favoritePhotos.map((item) =>
+                    item.id === action.photo.id ? action.photo : item
+                ),
+            };
         default:
             return state;
     }

@@ -19,3 +19,7 @@ export const removePhoto = (photo) => ({
     type: photosActionTypes.remove,
     photo,
 });
+export const updateComment = (photo) => ({
+    type: photosActionTypes.update,
+    photo,
+});
