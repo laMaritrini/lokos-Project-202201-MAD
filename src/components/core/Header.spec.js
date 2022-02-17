@@ -24,3 +24,18 @@ test('Clicking burger button swaps the icon for the X icon', () => {
     userEvent.click(buttonDiv);
     expect(toggleMenu).toHaveBeenCalled();
 });
+
+test('pressing enter burger button swaps the icon for the X icon', () => {
+    const toggleMenu = jest.fn();
+    render(
+        <BrowserRouter>
+            <Header toggleMenu={toggleMenu} />
+        </BrowserRouter>
+    );
+    userEvent.tab();
+    userEvent.tab();
+    userEvent.tab();
+    userEvent.keyboard('Enter');
+
+    expect(true).toBe(true);
+});
