@@ -47,7 +47,13 @@ export function Photo({ photo }) {
         <div className="photo">
             <div className="photo__container">
                 <Overlay photo={photo} />
-                <Link to={`/detail/id=${photo.id}`}>
+                <Link
+                    to={`/detail/id=${
+                        window.location.pathname === '/favorites'
+                            ? photo.myId
+                            : photo.id
+                    }`}
+                >
                     <img
                         className="photo__img"
                         src={photo.urls.small}
