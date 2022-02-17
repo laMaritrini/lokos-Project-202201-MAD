@@ -13,7 +13,10 @@ export function Photo({ photo }) {
 
     const checkFavoriteState = () => {
         let checkFavorite;
-        if (window.location.pathname === '/') {
+        if (
+            window.location.pathname === '/' ||
+            window.location.pathname.includes('/detail')
+        ) {
             checkFavorite = state.favoritePhotos.find(
                 (item) => item.myId === photo.id
             );
@@ -30,7 +33,10 @@ export function Photo({ photo }) {
     };
     const handleDeleteClick = () => {
         let payload;
-        if (window.location.pathname === '/') {
+        if (
+            window.location.pathname === '/' ||
+            window.location.pathname.includes('/detail')
+        ) {
             payload = state.favoritePhotos.find(
                 (item) => item.myId === photo.id
             );
