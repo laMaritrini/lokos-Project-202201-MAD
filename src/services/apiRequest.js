@@ -24,3 +24,6 @@ export async function getDetails(id) {
 export async function deleteFavoritePhoto(id) {
     return axios.delete(localUrl + id);
 }
+export async function uploadCommentFavorite(id, comment) {
+    return axios.patch(localUrl + id, { comment });
+}

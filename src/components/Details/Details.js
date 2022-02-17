@@ -17,7 +17,7 @@ export function Details() {
 
     return (
         <div className="outer-container">
-            <h3>DETAILS</h3>
+            <h3 className="outer-container__title">DETAILS</h3>
             {photoDetail && (
                 <>
                     {' '}

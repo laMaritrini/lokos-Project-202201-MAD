@@ -30,11 +30,17 @@ export function usePhotos() {
             dispatch(actions.removePhoto(photo));
         });
     };
+    const commentAddFavorite = (photo, comment) => {
+        service.uploadCommentFavorite(photo.id, comment).then((resp) => {
+            dispatch(actions.updateComment(resp.data));
+        });
+    };
 
     const contextValue = {
         state,
         addPhoto,
         deletePhoto,
+        commentAddFavorite,
     };
 
     return contextValue;
