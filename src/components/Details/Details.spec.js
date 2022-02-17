@@ -1,10 +1,11 @@
-import { when } from 'jest-when';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import { render, screen } from '@testing-library/react';
 import { Details } from './Details';
 import { getDetails } from '../../services/apiRequest';
 
 const detailObj = {
-    id: 1,
+    id: '1',
     urls: {
         small: 'Fake photo',
     },
@@ -38,10 +39,20 @@ const detailObj = {
 };
 
 jest.mock('../../services/apiRequest');
-when(getDetails).calledWith('id=1').mockResolvedValue(detailObj);
+getDetails.mockResolvedValue(detailObj);
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+    useParams: () => ({
+        id: 'id=1',
+    }),
+    useRouteMatch: () => ({ url: '/detail/id=1' }),
+}));
 
 describe('first', () => {
     test('should first', () => {
+        // const history = createMemoryHistory();
+        // history.push('/detail/id=1');
         render(<Details />);
         expect(screen.getByText(/hebeready/)).toBeDefined();
     });
