@@ -13,8 +13,15 @@ export function Favorites() {
             {state.favoritePhotos.map((item) => (
                 <>
                     <Photo key={item.id} photo={item} />
-                    <p>Comment:</p>
-                    {item.comment && <p> {item.comment}</p>}
+                    <div className="comment">
+                        <p className="comment__title">Comment: </p>
+                        {item.comment && (
+                            <p className="comment__paragraph">
+                                {' '}
+                                {item.comment}
+                            </p>
+                        )}
+                    </div>
 
                     <FavoritesComment key={`${item.id}N`} photo={item} />
                 </>

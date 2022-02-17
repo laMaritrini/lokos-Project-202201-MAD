@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+.about {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Dosis', sans-serif;
+    background-color: #d4e5e3;
+    &__title {
+        padding: 20px;
+    }
+    &__icon {
+        margin-top: 50px;
+    }
+}
