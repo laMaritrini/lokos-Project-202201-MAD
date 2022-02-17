@@ -1,11 +1,5 @@
-import {
-    BrowserRouter,
-    MemoryRouter,
-    Route,
-    Router,
-    Routes,
-} from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+
 import { render, screen } from '@testing-library/react';
 import { Details } from './Details';
 import { getDetails } from '../../services/apiRequest';
