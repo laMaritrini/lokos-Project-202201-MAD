@@ -2,17 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
+import { Auth0Provider } from '@auth0/auth0-react';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { ContextProvider } from './context/contextProvider';
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <ContextProvider>
-                <App />
-            </ContextProvider>
-        </BrowserRouter>
+        <Auth0Provider
+            domain="dev-lggd92-u.us.auth0.com"
+            clientId="JSv0ll6x935ZSkWxdjr2w6FEdkBfJbqf"
+            redirectUri={window.location.origin}
+        >
+            <BrowserRouter>
+                <ContextProvider>
+                    <App />
+                </ContextProvider>
+            </BrowserRouter>
+        </Auth0Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );

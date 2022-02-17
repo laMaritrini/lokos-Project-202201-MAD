@@ -5,7 +5,10 @@ export function photosReducer(state, action) {
         case photosActionTypes.load:
             return { ...state, photos: [...action.photoList] };
         case photosActionTypes.loadFavorites:
-            return { ...state, favoritePhotos: [...action.favoritePhotoList] };
+            return {
+                ...state,
+                favoritePhotos: [...action.favoritePhotoList],
+            };
         case photosActionTypes.add:
             return {
                 ...state,

@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { getDetails } from '../../services/apiRequest';
 import { Photo } from '../Photo/Photo';
 import './Details.scss';
-// import './Details.scss';
 
 export function Details() {
     const [photoDetail, setPhotoDetail] = useState();

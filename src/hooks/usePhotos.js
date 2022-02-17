@@ -1,9 +1,11 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { useReducer, useEffect } from 'react';
 import { photosReducer } from '../reducers/reducers';
 import * as service from '../services/apiRequest';
 import * as actions from '../reducers/actionCreators';
 
 export function usePhotos() {
+    const { user, isAuthenticated } = useAuth0();
     const [state, dispatch] = useReducer(photosReducer, {
         photos: [],
         favoritePhotos: [],
@@ -13,15 +15,22 @@ export function usePhotos() {
         service
             .getHomePhotos()
             .then((resp) => dispatch(actions.loadPhotos(resp.data)));
-        service
-            .getFavoritePhotos()
-            .then((resp) => dispatch(actions.loadFavoritePhotos(resp.data)));
-    }, []);
+        if (isAuthenticated) {
+            service.getFavoritePhotos(user.email).then((resp) => {
+                dispatch(actions.loadFavoritePhotos(resp.data));
+            });
+        }
+    }, [user, isAuthenticated]);
 
     const addPhoto = (newPhoto) => {
-        service.set(newPhoto).then((resp) => {
-            dispatch(actions.addPhotos(resp.data));
-        });
+        const newPhotoCopy = { ...newPhoto };
+        const myId = newPhotoCopy.id;
+        delete newPhotoCopy.id;
+        service
+            .set({ ...newPhotoCopy, myUser: user.email, myId })
+            .then((resp) => {
+                dispatch(actions.addPhotos(resp.data));
+            });
     };
     const deletePhoto = (photo) => {
         service.deleteFavoritePhoto(photo.id).then((resp) => {
