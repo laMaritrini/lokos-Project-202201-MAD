@@ -1,9 +1,11 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { useReducer, useEffect } from 'react';
 import { photosReducer } from '../reducers/reducers';
 import * as service from '../services/apiRequest';
 import * as actions from '../reducers/actionCreators';
 
 export function usePhotos() {
+    const { user } = useAuth0();
     const [state, dispatch] = useReducer(photosReducer, {
         photos: [],
         favoritePhotos: [],
