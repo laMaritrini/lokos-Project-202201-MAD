@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import './Photo.scss';
 import { useContext, useEffect, useState } from 'react';
@@ -6,13 +7,21 @@ import Overlay from '../Overlay/Overlay';
 import { Context } from '../../context/contextProvider';
 
 export function Photo({ photo }) {
+    const { user } = useAuth0();
     const { state, addPhoto, deletePhoto } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
 
     const checkFavoriteState = () => {
-        const checkFavorite = state.favoritePhotos.find(
-            (item) => item.id === photo.id
-        );
+        let checkFavorite;
+        if (window.location.pathname === '/') {
+            checkFavorite = state.favoritePhotos.find(
+                (item) => item.myId === photo.id
+            );
+        } else if (window.location.pathname === '/favorites') {
+            checkFavorite = state.favoritePhotos.find(
+                (item) => item.myId === photo.myId
+            );
+        }
         setIsFavorite(checkFavorite);
     };
     const handleClick = () => {

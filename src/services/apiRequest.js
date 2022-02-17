@@ -8,8 +8,8 @@ export async function getHomePhotos() {
     return axios.get(homeUrl);
 }
 
-export async function getFavoritePhotos() {
-    return axios.get(localUrl);
+export async function getFavoritePhotos(email) {
+    return axios.get(`${localUrl}?myUser=${email}`);
 }
 
 export async function set(photo) {

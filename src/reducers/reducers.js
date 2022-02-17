@@ -5,7 +5,15 @@ export function photosReducer(state, action) {
         case photosActionTypes.load:
             return { ...state, photos: [...action.photoList] };
         case photosActionTypes.loadFavorites:
-            return { ...state, favoritePhotos: [...action.favoritePhotoList] };
+            return {
+                ...state,
+                favoritePhotos: [
+                    // action.favoritePhotoList.filter(
+                    //     (item) => item.user.email === action.user.email
+                    // ),
+                    ...action.favoritePhotoList,
+                ],
+            };
         case photosActionTypes.add:
             return {
                 ...state,
