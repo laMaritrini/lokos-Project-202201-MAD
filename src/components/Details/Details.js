@@ -32,7 +32,7 @@ export function Details() {
                         <i className="tags__icon" />
                     </div>
                     <div className="details">
-                        <div className="details__container-author">
+                        <div className="details__container">
                             <i className="details__container-icon" />
                             <p>
                                 Name: {photoDetail.user.name}{' '}
@@ -42,7 +42,7 @@ export function Details() {
                             <p>Twitter: {photoDetail.user.twitter_username}</p>
                             <p>Bio: {photoDetail.user.bio}</p>
                         </div>
-                        <div className="details__container-camera">
+                        <div className="details__container">
                             <i className="details__container-icon" />
                             <p>Camara Brand: {photoDetail.exif.name}</p>
                             <p>
@@ -52,7 +52,7 @@ export function Details() {
                             <p>Focal Length: {photoDetail.exif.focal_length}</p>
                             <p>ISO: {photoDetail.exif.iso}</p>
                         </div>
-                        <div className="details__container-social">
+                        <div className="details__container">
                             <i className="details__container-icon" />
                             <p>Views: {photoDetail.views}</p>
                             <p>Downloads: {photoDetail.downloads}</p>
