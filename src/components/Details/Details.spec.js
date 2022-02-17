@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import {
+    BrowserRouter,
+    MemoryRouter,
+    Route,
+    Router,
+    Routes,
+} from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { render, screen } from '@testing-library/react';
 import { Details } from './Details';
@@ -39,24 +45,19 @@ const detailObj = {
 };
 
 jest.mock('../../services/apiRequest');
-getDetails.mockResolvedValue(detailObj);
-
-const history = createMemoryHistory();
 
 describe('first', () => {
+    beforeEach(() => {
+        getDetails.mockResolvedValue(detailObj);
+    });
     test('should first history={history}', () => {
-        const route = '/details/id=1';
-        history.push();
         render(
-            <BrowserRouter>
-                <Routes>
+            <MemoryRouter initialEntries={['/detail/id=1']}>
+                <Routes location={{ pathname: '/detail/id=1' }}>
                     <Route path="/detail/:id" element={<Details />} />
                 </Routes>
-            </BrowserRouter>,
-            {
-                route: '/detail/id=1',
-            }
+            </MemoryRouter>
         );
-        expect(screen.getByText(/hebeready/)).toBeDefined();
+        expect(screen.getByText(/DETAILS/)).toBeDefined();
     });
 });
