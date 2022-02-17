@@ -1,10 +1,17 @@
-import { when } from 'jest-when';
+import {
+    BrowserRouter,
+    MemoryRouter,
+    Route,
+    Router,
+    Routes,
+} from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import { render, screen } from '@testing-library/react';
 import { Details } from './Details';
 import { getDetails } from '../../services/apiRequest';
 
 const detailObj = {
-    id: 1,
+    id: '1',
     urls: {
         small: 'Fake photo',
     },
@@ -38,11 +45,19 @@ const detailObj = {
 };
 
 jest.mock('../../services/apiRequest');
-when(getDetails).calledWith('id=1').mockResolvedValue(detailObj);
 
 describe('first', () => {
-    test('should first', () => {
-        render(<Details />);
-        expect(screen.getByText(/hebeready/)).toBeDefined();
+    beforeEach(() => {
+        getDetails.mockResolvedValue(detailObj);
+    });
+    test('should first history={history}', () => {
+        render(
+            <MemoryRouter initialEntries={['/detail/id=1']}>
+                <Routes location={{ pathname: '/detail/id=1' }}>
+                    <Route path="/detail/:id" element={<Details />} />
+                </Routes>
+            </MemoryRouter>
+        );
+        expect(screen.getByText(/DETAILS/)).toBeDefined();
     });
 });

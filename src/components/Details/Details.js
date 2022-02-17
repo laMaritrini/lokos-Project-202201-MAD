@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getDetails } from '../../services/apiRequest';
 import { Photo } from '../Photo/Photo';
+// import './Details.scss';
 
 export function Details() {
     const [photoDetail, setPhotoDetail] = useState();
@@ -15,8 +16,8 @@ export function Details() {
     }, [id]);
 
     return (
-        <div>
-            <h3>DETAILS</h3>
+        <div className="outer-container">
+            <h3 className="outer-container__title">DETAILS</h3>
             {photoDetail && (
                 <>
                     {' '}
