@@ -43,7 +43,10 @@ describe('Given loadFavorites', () => {
 });
 describe('Given add', () => {
     it('Should return initial state', () => {
-        expect(photosReducer(stateGiven, actions.addPhotos(photoList))).toEqual(
+        const addPhoto = {
+            id: 1,
+        };
+        expect(photosReducer(stateGiven, actions.addPhotos(addPhoto))).toEqual(
             resultLoadState
         );
     });
