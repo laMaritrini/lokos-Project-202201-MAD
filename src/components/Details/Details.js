@@ -17,16 +17,18 @@ export function Details() {
 
     return (
         <div className="outer-container">
-            <h3 className="outer-container__title">DETAILS</h3>
+            <h2 className="outer-container__title">Details</h2>
             {photoDetail && (
                 <>
                     {' '}
                     <Photo photo={photoDetail} />
                     <div className="tags">
-                        <h2 className="tags__title">Tags:</h2>
-                        {photoDetail.tags_preview.map((item) => (
-                            <span key={item.title}>{item.title} </span>
-                        ))}
+                        <div className="tags__container">
+                            <h3 className="tags__title">Tags:</h3>
+                            {photoDetail.tags_preview.map((item) => (
+                                <span key={item.title}>{item.title} </span>
+                            ))}
+                        </div>
                         <i className="tags__icon" />
                     </div>
                     <div className="details">

@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { Context } from '../../context/contextProvider';
+import './Favorites.scss';
 
 export function FavoritesComment({ photo }) {
     const [newComment, setNewComment] = useState('');
@@ -14,14 +15,17 @@ export function FavoritesComment({ photo }) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <input
+                className="form__input"
                 type="text"
                 placeholder="Add comment"
                 onChange={handleChange}
                 value={newComment}
             />
-            <button type="submit">Send</button>
+            <button className="form__button" type="submit">
+                Send
+            </button>
         </form>
     );
 }
