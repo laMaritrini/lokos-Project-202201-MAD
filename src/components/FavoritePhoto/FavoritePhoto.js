@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import './Photo.scss';
+import './FavoritePhoto.scss';
 import { useContext, useEffect, useState } from 'react';
 import Overlay from '../Overlay/Overlay';
 import { Context } from '../../context/contextProvider';
 import { checkFavoriteState } from './checkFavoriteState';
 import PhotoInfo from '../PhotoInfo/PhotoInfo';
 
-export function Photo({ photo }) {
+export function FavoritePhoto({ photo }) {
     const { state, addPhoto, deletePhoto } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
 
@@ -18,11 +18,7 @@ export function Photo({ photo }) {
         updateFavoriteState();
     };
     const handleDeleteClick = () => {
-        const payload = state.favoritePhotos.find(
-            (item) => item.myId === photo.id
-        );
-
-        deletePhoto(payload);
+        deletePhoto(photo);
         updateFavoriteState();
     };
     useEffect(() => {
@@ -32,7 +28,7 @@ export function Photo({ photo }) {
         <div className="photo">
             <div className="photo__container">
                 <Overlay photo={photo} />
-                <Link to={`/detail/id=${photo.id}`}>
+                <Link to={`/detail/id=${photo.myId}`}>
                     <img
                         className="photo__img"
                         src={photo.urls.small}

@@ -1,8 +1,8 @@
 import { prettyDOM, render, screen } from '@testing-library/react';
-import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { Context } from '../../context/contextProvider';
-import { Photo } from './Photo';
+import { FavoritePhoto } from './FavoritePhoto';
 import { checkFavoriteState } from './checkFavoriteState';
 
 const mockPhoto = {
@@ -26,7 +26,7 @@ describe('Given photo component', () => {
         test('It should render', () => {
             render(
                 <BrowserRouter>
-                    <Photo photo={mockPhoto} />
+                    <FavoritePhoto photo={mockPhoto} />
                 </BrowserRouter>
             );
             expect(screen.getByAltText(/Alt_description/)).toBeInTheDocument();
@@ -46,7 +46,7 @@ describe('Given photo component', () => {
             const { container } = render(
                 <Context.Provider value={contextValue}>
                     <BrowserRouter>
-                        <Photo photo={mockPhoto} />
+                        <FavoritePhoto photo={mockPhoto} />
                     </BrowserRouter>
                 </Context.Provider>
             );
@@ -67,7 +67,7 @@ describe('Given photo component', () => {
             const { container } = render(
                 <Context.Provider value={contextValue}>
                     <BrowserRouter>
-                        <Photo photo={mockPhoto} />
+                        <FavoritePhoto photo={mockPhoto} />
                     </BrowserRouter>
                 </Context.Provider>
             );

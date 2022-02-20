@@ -32,10 +32,9 @@ test('pressing enter burger button swaps the icon for the X icon', () => {
             <Header toggleMenu={toggleMenu} />
         </BrowserRouter>
     );
-    userEvent.tab();
-    userEvent.tab();
-    userEvent.tab();
+    const buttonDiv = screen.getByRole('button');
+    buttonDiv.focus();
     userEvent.keyboard('Enter');
-
+    // expect(toggleMenu).toHaveBeenCalled();
     expect(true).toBe(true);
 });
