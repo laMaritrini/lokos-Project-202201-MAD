@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Context } from '../../context/contextProvider';
+import { FavoritePhoto } from '../FavoritePhoto/FavoritePhoto';
 import { Photo } from '../Photo/Photo';
 import { FavoritesComment } from './Favorites-comment';
 import './Favorites.scss';
@@ -12,7 +13,7 @@ export function Favorites() {
             <h2 className="favorites__title">My Favorites</h2>
             {state.favoritePhotos.map((item) => (
                 <>
-                    <Photo key={item.id} photo={item} />
+                    <FavoritePhoto key={item.id} photo={item} />
                     <div className="comment">
                         <p className="comment__title">Comment: </p>
                         {item.comment && (

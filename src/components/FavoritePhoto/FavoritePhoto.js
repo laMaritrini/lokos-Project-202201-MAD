@@ -1,38 +1,36 @@
 import { Link } from 'react-router-dom';
-import './Photo.scss';
+import './FavoritePhoto.scss';
 import { useContext, useEffect, useState } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import Overlay from '../Overlay/Overlay';
 import { Context } from '../../context/contextProvider';
-import { checkFavoriteState } from './checkFavoriteState';
 
-export function Photo({ photo }) {
+export function FavoritePhoto({ photo }) {
     const { state, addPhoto, deletePhoto } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
 
-    const updateFavoriteState = () => {
-        setIsFavorite(checkFavoriteState(state, photo));
+    const checkFavoriteState = () => {
+        const checkFavorite = state.favoritePhotos.find(
+            (item) => item.myId === photo.myId
+        );
+        setIsFavorite(checkFavorite);
     };
     const handleClick = () => {
         addPhoto(photo);
-        updateFavoriteState();
+        checkFavoriteState();
     };
     const handleDeleteClick = () => {
-        const payload = state.favoritePhotos.find(
-            (item) => item.myId === photo.id
-        );
-
-        deletePhoto(payload);
-        updateFavoriteState();
+        deletePhoto(photo);
+        checkFavoriteState();
     };
     useEffect(() => {
-        updateFavoriteState();
+        checkFavoriteState();
     });
     return (
         <div className="photo">
             <div className="photo__container">
                 <Overlay photo={photo} />
-                <Link to={`/detail/id=${photo.id}`}>
+                <Link to={`/detail/id=${photo.myId}`}>
                     <img
                         className="photo__img"
                         src={photo.urls.small}
@@ -55,14 +53,12 @@ export function Photo({ photo }) {
                         onClick={handleDeleteClick}
                         role="button"
                         className="photo__heart-icon"
-                        data-testid="delete-btn"
                     />
                 ) : (
                     <AiOutlineHeart
                         onClick={handleClick}
                         role="button"
                         className="photo__heart-icon"
-                        data-testid="add-btn"
                     />
                 )}
             </div>
