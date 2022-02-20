@@ -4,27 +4,25 @@ import { useContext, useEffect, useState } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import Overlay from '../Overlay/Overlay';
 import { Context } from '../../context/contextProvider';
+import { checkFavoriteState } from './checkFavoriteState';
 
 export function FavoritePhoto({ photo }) {
     const { state, addPhoto, deletePhoto } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
 
-    const checkFavoriteState = () => {
-        const checkFavorite = state.favoritePhotos.find(
-            (item) => item.myId === photo.myId
-        );
-        setIsFavorite(checkFavorite);
+    const updateFavoriteState = () => {
+        setIsFavorite(checkFavoriteState(state, photo));
     };
     const handleClick = () => {
         addPhoto(photo);
-        checkFavoriteState();
+        updateFavoriteState();
     };
     const handleDeleteClick = () => {
         deletePhoto(photo);
-        checkFavoriteState();
+        updateFavoriteState();
     };
     useEffect(() => {
-        checkFavoriteState();
+        updateFavoriteState();
     });
     return (
         <div className="photo">
@@ -53,11 +51,13 @@ export function FavoritePhoto({ photo }) {
                         onClick={handleDeleteClick}
                         role="button"
                         className="photo__heart-icon"
+                        data-testid="delete-btn"
                     />
                 ) : (
                     <AiOutlineHeart
                         onClick={handleClick}
                         role="button"
+                        data-testid="add-btn"
                         className="photo__heart-icon"
                     />
                 )}
