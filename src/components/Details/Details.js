@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { getDetails } from '../../services/apiRequest';
 import { Photo } from '../Photo/Photo';
 import './Details.scss';
+import { CameraDetails } from './Camera-details';
+import { SocialDetails } from './Social-details';
+import { UserDetails } from './User-details';
 
 export function Details() {
     const [photoDetail, setPhotoDetail] = useState();
@@ -30,36 +33,28 @@ export function Details() {
                         </div>
                         <i className="tags__icon" />
                     </div>
-                    <div className="details">
-                        <div className="details__container">
-                            <i className="details__container-icon" />
-                            <p>
-                                Name: {photoDetail.user.name}{' '}
-                                {photoDetail.user.last_name}
-                            </p>
-                            <p>Portfolio: {photoDetail.user.portfolio_url}</p>
-                            <p>Twitter: {photoDetail.user.twitter_username}</p>
-                            <p>Bio: {photoDetail.user.bio}</p>
-                        </div>
-                        <div className="details__container">
-                            <i className="details__container-icon" />
-                            <p>Camara Brand: {photoDetail.exif.name}</p>
-                            <p>
-                                Exposure Time: {photoDetail.exif.exposure_time}
-                            </p>
-                            <p>Aperture: {photoDetail.exif.aperture}</p>
-                            <p>Focal Length: {photoDetail.exif.focal_length}</p>
-                            <p>ISO: {photoDetail.exif.iso}</p>
-                        </div>
-                        <div className="details__container">
-                            <i className="details__container-icon" />
-                            <p>Views: {photoDetail.views}</p>
-                            <p>Downloads: {photoDetail.downloads}</p>
-                            <p>Likes: {photoDetail.likes}</p>
-                            <p>Created at: {photoDetail.created_at}</p>
-                            <p>Location: {photoDetail.location.city}</p>
-                        </div>
-                    </div>
+                    <div className="details" />
+                    <UserDetails
+                        userName={photoDetail.user.name}
+                        userLastName={photoDetail.user.last_name}
+                        userPortfolio={photoDetail.user.portfolio_url}
+                        userTwitter={photoDetail.user.twitter_username}
+                        userBio={photoDetail.user.bio}
+                    />
+                    <CameraDetails
+                        camera={photoDetail.exif.name}
+                        exposure={photoDetail.exif.exposure_time}
+                        aperture={photoDetail.exif.aperture}
+                        focal={photoDetail.exif.focal_length}
+                        iso={photoDetail.exif.iso}
+                    />
+                    <SocialDetails
+                        view={photoDetail.views}
+                        downloads={photoDetail.downloads}
+                        likes={photoDetail.likes}
+                        created={photoDetail.created_at}
+                        location={photoDetail.location.city}
+                    />
                 </>
             )}
         </div>

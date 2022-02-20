@@ -1,5 +1,6 @@
+import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { Header } from './components/core/Header';
 import { Footer } from './components/core/Footer';
 import { Home } from './components/Home/Home';
