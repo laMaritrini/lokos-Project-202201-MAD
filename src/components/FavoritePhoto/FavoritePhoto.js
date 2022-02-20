@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import './FavoritePhoto.scss';
 import { useContext, useEffect, useState } from 'react';
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import Overlay from '../Overlay/Overlay';
 import { Context } from '../../context/contextProvider';
 import { checkFavoriteState } from './checkFavoriteState';
+import PhotoInfo from '../PhotoInfo/PhotoInfo';
 
 export function FavoritePhoto({ photo }) {
     const { state, addPhoto, deletePhoto } = useContext(Context);
@@ -36,32 +36,12 @@ export function FavoritePhoto({ photo }) {
                     />
                 </Link>
             </div>
-            <div className="photo__info-container">
-                <div className="photo__user-container">
-                    <div className="photo__user-photo-container">
-                        <img
-                            src={photo.user.profile_image.small}
-                            alt={photo.user.first_name}
-                        />
-                    </div>
-                    <h2 className="photo__user-name">{photo.user.username}</h2>
-                </div>
-                {isFavorite ? (
-                    <AiFillHeart
-                        onClick={handleDeleteClick}
-                        role="button"
-                        className="photo__heart-icon"
-                        data-testid="delete-btn"
-                    />
-                ) : (
-                    <AiOutlineHeart
-                        onClick={handleClick}
-                        role="button"
-                        data-testid="add-btn"
-                        className="photo__heart-icon"
-                    />
-                )}
-            </div>
+            <PhotoInfo
+                handleDeleteClick={handleDeleteClick}
+                handleClick={handleClick}
+                isFavorite={isFavorite}
+                photo={photo}
+            />
         </div>
     );
 }

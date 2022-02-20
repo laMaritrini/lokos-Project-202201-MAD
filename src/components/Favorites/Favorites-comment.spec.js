@@ -1,28 +1,36 @@
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
-import { createContext } from 'react';
 import { FavoritesComment } from './Favorites-comment';
+import { Context } from '../../context/contextProvider';
 
-const Context = createContext();
+const commentAddFavorite = jest.fn();
+const wrapper = {
+    commentAddFavorite,
+};
 
-function ContextProvider({ children }) {
-    return (
-        <Context.Provider value={{ commentAddFavorite: jest.fn() }}>
-            {children}
-        </Context.Provider>
-    );
-}
-
-describe('Given photo component', () => {
-    describe('When passed a photo obj', () => {
+describe('Given Favorite-comment component', () => {
+    describe('When called', () => {
         test('It should render', () => {
             render(
-                <ContextProvider>
+                <Context.Provider value={wrapper}>
                     <FavoritesComment />
-                </ContextProvider>
+                </Context.Provider>
             );
             const submitBtn = screen.getByText(/Send/);
             expect(submitBtn).toBeInTheDocument();
+        });
+        test('When submitting the form it should call commentAddFavorite', () => {
+            render(
+                <Context.Provider value={wrapper}>
+                    <FavoritesComment />
+                </Context.Provider>
+            );
+            const submitBtn = screen.getByText(/Send/);
+            const textBox = screen.getByPlaceholderText(/Add comment/);
+            userEvent.click(textBox);
+            userEvent.keyboard('Hello');
+            userEvent.click(submitBtn);
+            expect(commentAddFavorite).toHaveBeenCalled();
         });
     });
 });

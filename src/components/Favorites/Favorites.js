@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Context } from '../../context/contextProvider';
 import { FavoritePhoto } from '../FavoritePhoto/FavoritePhoto';
-import { Photo } from '../Photo/Photo';
 import { FavoritesComment } from './Favorites-comment';
 import './Favorites.scss';
 

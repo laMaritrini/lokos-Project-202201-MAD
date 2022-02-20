@@ -1,7 +1,2 @@
-export const checkFavoriteState = (state, photo) => {
-    const checkFavorite = state.favoritePhotos.find(
-        (item) => item.id === photo.id
-    );
-
-    return checkFavorite;
-};
+export const checkFavoriteState = (state, photo) =>
+    state.favoritePhotos.find((item) => item.id === photo.id);

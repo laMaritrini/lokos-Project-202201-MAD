@@ -72,8 +72,6 @@ describe('Given photo component', () => {
                 </Context.Provider>
             );
 
-            console.log(prettyDOM(container));
-
             userEvent.click(screen.getByTestId('delete-btn'));
             expect(contextValue.deletePhoto).toHaveBeenCalled();
         });

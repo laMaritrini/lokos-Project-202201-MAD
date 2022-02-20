@@ -47,7 +47,6 @@ describe('Given the usePhotos custom hook', () => {
 
                 const mockPhoto = { id: 1 };
                 const mockComment = '';
-                const mockId = 23;
 
                 return (
                     <div>
@@ -106,7 +105,7 @@ describe('Given the usePhotos custom hook', () => {
                 screen.getByText(/\[{"id":1,"comment":"Hello"}\]/)
             ).toBeInTheDocument();
         });
-        test('It should return an object with a state and three functions', async () => {
+        test('It should return an object with a state and three functionss', async () => {
             useAuth0.mockReturnValue({
                 isAuthenticated: false,
                 user,
@@ -122,7 +121,6 @@ describe('Given the usePhotos custom hook', () => {
 
                 const mockPhoto = { id: 1 };
                 const mockComment = '';
-                const mockId = 23;
 
                 return (
                     <div>
