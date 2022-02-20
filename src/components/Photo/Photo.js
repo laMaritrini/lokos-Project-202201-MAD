@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import './Photo.scss';
 import { useContext, useEffect, useState } from 'react';
@@ -7,7 +6,6 @@ import Overlay from '../Overlay/Overlay';
 import { Context } from '../../context/contextProvider';
 
 export function Photo({ photo }) {
-    const { user } = useAuth0();
     const { state, addPhoto, deletePhoto } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
 
@@ -80,11 +78,13 @@ export function Photo({ photo }) {
                 {isFavorite ? (
                     <AiFillHeart
                         onClick={handleDeleteClick}
+                        role="button"
                         className="photo__heart-icon"
                     />
                 ) : (
                     <AiOutlineHeart
                         onClick={handleClick}
+                        role="button"
                         className="photo__heart-icon"
                     />
                 )}

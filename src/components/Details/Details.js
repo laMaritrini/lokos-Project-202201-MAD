@@ -10,7 +10,6 @@ export function Details() {
 
     useEffect(() => {
         getDetails(id.replace('id=', '')).then((data) => {
-            console.log(data);
             setPhotoDetail(data.data);
         });
     }, [id]);

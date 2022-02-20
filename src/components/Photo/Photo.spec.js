@@ -1,5 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { prettyDOM, render, screen } from '@testing-library/react';
+import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+import { Context } from '../../context/contextProvider';
 import { Photo } from './Photo';
 
 const mockPhoto = {
@@ -27,5 +29,36 @@ describe('Given photo component', () => {
             expect(screen.getByAltText(/Alt_description/)).toBeInTheDocument();
             expect(screen.getAllByText(/hebeready/)).toHaveLength(2);
         });
+
+        // test('It should renders', () => {
+        //     const contextValue = {
+        //         state: {
+        //             photo: [],
+        //             favoritePhotos: [],
+        //         },
+        //         addPhoto: jest.fn(),
+        //         deletePhoto: jest.fn(),
+        //     };
+        //     const { container } = render(
+        //         <Context.Provider value={contextValue}>
+        //             <MemoryRouter initialEntries={['/']}>
+        //                 <Routes location={{ pathname: '/' }}>
+        //                     <Route
+        //                         path="/"
+        //                         element={<Photo photo={mockPhoto} />}
+        //                     />
+        //                 </Routes>
+        //             </MemoryRouter>
+        //         </Context.Provider>
+        //     );
+        //     expect(screen.getByRole(/button/)).toBeInTheDocument();
+        //     userEvent.click(screen.getByRole(/button/));
+        //     expect(contextValue.addPhoto).toHaveBeenCalled();
+
+        //     console.log(prettyDOM(container));
+
+        //     userEvent.click(screen.getAllByRole(/button/)[1]);
+        //     expect(contextValue.deletePhoto).toHaveBeenCalled();
+        // });
     });
 });

@@ -43,12 +43,10 @@ export function usePhotos() {
         });
     };
 
-    const contextValue = {
+    return {
         state,
         addPhoto,
         deletePhoto,
         commentAddFavorite,
     };
-
-    return contextValue;
 }
